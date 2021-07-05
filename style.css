@@ -55,6 +55,11 @@ input{
 .output .follow p{
     font-weight: bold;
 }
-/* @media (max-width:680px) {
-    
-} */
+@media (max-width:680px) {
+    .formContainer{ 
+        width: 70%;
+    }
+    .formClass{
+        width: 90%;
+    }
+} 
