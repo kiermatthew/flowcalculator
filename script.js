@@ -1,16 +1,17 @@
-var mwValue, tValue, dx1, dx2, dy1, dy2, vx1, vx2, vy1, vy2, diameterValue, velocityValue;
-var validationText, densityResult, viscosityResult, nreResult, diameterResult;
-
-let validate = document.getElementById("validation").innerHTML;
-let density = document.getElementById("density").innerHTML;
-let viscosity = document.getElementById("viscosity").innerHTML;
-let diameter = document.getElementById("diameter").innerHTML;
-let nre =  document.getElementById("nre").innerHTML;
-let laminar = document.getElementById("laminar").innerHTML;
-let transient = document.getElementById("transient").innerHTML; 
-let turbulent = document.getElementById("turbulent").innerHTML;
+let mwValue, tValue, dx1, dx2, dy1, dy2, vx1, vx2, vy1, vy2, diameterValue, velocityValue;
+let validationText, densityResult, viscosityResult, nreResult, diameterResult;
+let validate,density,viscosity,diameter,nre,laminar,transient,turbulent;
 
 function calculate() {
+    validate = document.getElementById("validation");
+    density = document.getElementById("density");
+    viscosity = document.getElementById("viscosity");
+    diameter = document.getElementById("diameter");
+    nre = document.getElementById("nre");
+    laminar = document.getElementById("laminar");
+    transient = document.getElementById("transient");
+    turbulent = document.getElementById("turbulent");
+
     mwValue = document.forms["form"]["mwValue"].value;
     tValue = document.forms["form"]["tValue"].value;
     dx1 = document.forms["form"]["dx1"].value;
@@ -24,34 +25,38 @@ function calculate() {
     diameterValue = document.forms["form"]["diameterValue"].value;
     velocityValue = document.forms["form"]["velocityValue"].value;
 
-    if (isNaN(tValue) || isNaN(mwValue) || isNaN(dx1) || isNaN(dx2) || isNaN(dy1) || isNaN(dy2) ||
-        isNaN(vx1) || isNaN(vx2) || isNaN(vy1) || isNaN(vy2) || isNaN(diameterValue) || isNaN(velocityValue)) {
-        validate = "Input must be a number! Try again.";
-        density = "";
-        viscosity = "";
-        diameter = "";
-        nre = "";
+    let getDensity = () => (+dy1 + (+tValue - +dx1) * ((+dy2 - +dy1) / (+dx2 - +dx1))) * +mwValue;
+    let getViscosity = () => (+vy1 + (+tValue - +vx1) * ((+vy2 - +vy1) / (+vx2 - +vx1))) * (0.000001);
+    let getDiameter = () => +diameterValue * (0.0254);
+    let getNre = () => (getDiameter() * +velocityValue * +getDensity()) / (+getViscosity());
+
+/*
+)
+
+*/
+
+    if (isNaN(tValue || mwValue || dx1 || dx2 || dy1 || dy2 || vx1 || vx2 || vy1 || vy2 || diameterValue || velocityValue)) {
+        validate.innerHTML = "Input must be a number! Try again.";
+        density.innerHTML = "";
+        viscosity.innerHTML = "";
+        diameter.innerHTML = "";
+        nre.innerHTML = "";
     }
-    else if (tValue == "" || mwValue == "" || dx1 == "" || dx2 == "" || dy1 == "" || dy2 == "" ||
-        vx1 == "" || vx2 == "" || vy1 == "" || vy2 == "" || diameterValue == "" || velocityValue == "") {
-        validate = "Input must not be empty! Try again.";
-        density = "";
-        viscosity = "";
-        diameter = "";
-        nre = "";
+    else if ((tValue || mwValue || dx1 || dx2 || dy1 || dy2  || vx1 || vx2  || vy1 || vy2 || diameterValue  || velocityValue ) == ""){
+        validate.innerHTML = "Input must not be empty! Try again.";
+        density.innerHTML = "";
+        viscosity.innerHTML = "";
+        diameter.innerHTML = "";
+        nre.innerHTML = "";
     }
     else {
-        densityResult = (+dy1 + (+tValue - +dx1) * ((+dy2 - +dy1) / (+dx2 - +dx1))) * +mwValue;
-        viscosityResult = (+vy1 + (+tValue - +vx1) * ((+vy2 - +vy1) / (+vx2 - +vx1))) * (0.000001);
-        diameterResult = +diameterValue * (0.0254);
-        nreResult = (+diameterResult * +velocityValue * +densityResult) / (+viscosityResult);
-        validate = "";
-        density = "ρ = " + densityResult;
-        viscosity = "μ = " + viscosityResult;
-        diameter = "D = " + diameterResult;
-        nre = "Nre = " + nreResult;
-        laminar = "Laminar - when Nre < 2300";
-        transient = "Transient - when 2300 < Nre < 4000";
-        turbulent= "Turbulent - when Nre > 4000";
+        validate.innerHTML = "";
+        density.innerHTML = "ρ = " + getDensity();
+        viscosity.innerHTML = "μ = " + getViscosity();
+        diameter.innerHTML = "D = " + getDiameter();
+        nre.innerHTML = "Nre = " + getNre();
+        laminar.innerHTML = "Laminar - when Nre < 2300";
+        transient.innerHTML = "Transient - when 2300 < Nre < 4000";
+        turbulent.innerHTML = "Turbulent - when Nre > 4000";
     }
 }
