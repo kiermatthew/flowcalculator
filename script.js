@@ -3,6 +3,7 @@ let validationText, densityResult, viscosityResult, nreResult, diameterResult;
 let validate,density,viscosity,diameter,nre,laminar,transient,turbulent;
 
 function calculate() {
+    //connecting js to html 
     validate = document.getElementById("validation");
     density = document.getElementById("density");
     viscosity = document.getElementById("viscosity");
@@ -11,7 +12,6 @@ function calculate() {
     laminar = document.getElementById("laminar");
     transient = document.getElementById("transient");
     turbulent = document.getElementById("turbulent");
-
     mwValue = document.forms["form"]["mwValue"].value;
     tValue = document.forms["form"]["tValue"].value;
     dx1 = document.forms["form"]["dx1"].value;
@@ -25,16 +25,13 @@ function calculate() {
     diameterValue = document.forms["form"]["diameterValue"].value;
     velocityValue = document.forms["form"]["velocityValue"].value;
 
+    // computations
     let getDensity = () => (+dy1 + (+tValue - +dx1) * ((+dy2 - +dy1) / (+dx2 - +dx1))) * +mwValue;
     let getViscosity = () => (+vy1 + (+tValue - +vx1) * ((+vy2 - +vy1) / (+vx2 - +vx1))) * (0.000001);
     let getDiameter = () => +diameterValue * (0.0254);
     let getNre = () => (getDiameter() * +velocityValue * +getDensity()) / (+getViscosity());
 
-/*
-)
-
-*/
-
+    //validation and answer output
     if (isNaN(tValue || mwValue || dx1 || dx2 || dy1 || dy2 || vx1 || vx2 || vy1 || vy2 || diameterValue || velocityValue)) {
         validate.innerHTML = "Input must be a number! Try again.";
         density.innerHTML = "";
