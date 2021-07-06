@@ -11,19 +11,19 @@
 <body>
         
     <div class="container">
-        <div class="heading">
+        <div class="header">
             <h1>Determination of Water Flow in a Pipe</h1>
              <p>Note: Values are obtained in Perry's Chemical Engineering Handbook 9th Edition</p>
         </div>
 
-        <form class="formClass" name="form" action="javascript:calculate();">
+        <form class="form form__container"  action="javascript:calculate();">
             <div class="formItem">
                 <label for="mwValue">MW of Substance</label>
-                <input type="text " name = "mwValue">
+                <input type="text " id = "mwValue">
             </div>
             <div class="formItem">
                 <label for="tValue">Enter value of T</label>
-                <input type="text " name = "tValue">
+                <input type="text " id = "tValue">
             </div>
             <div class = "formItem">
                 <label>Density</label>
@@ -33,12 +33,12 @@
                         <th><label>Y</label></th>
                     </tr>
                     <tr>
-                        <td><input type="text" name="dx1"></td>
-                        <td><input type="text" name="dy1"></td>
+                        <td><input type="text" id="dx1"></td>
+                        <td><input type="text" id="dy1"></td>
                     </tr>
                     <tr>
-                        <td><input type="text" name="dx2"></td>
-                        <td><input type="text" name="dy2"></td>
+                        <td><input type="text" id="dx2"></td>
+                        <td><input type="text" id="dy2"></td>
                     </tr>
                 </table>
             </div>
@@ -51,24 +51,24 @@
                         <th><label>Y</label></th>
                     </tr>
                     <tr>
-                        <td><input type="text" name="vx1"></td>
-                        <td><input type="text" name="vy1"></td>
+                        <td><input type="text" id="vx1"></td>
+                        <td><input type="text" id="vy1"></td>
                     </tr>
                     <tr>
-                        <td><input type="text" name="vx2"></td>
-                        <td><input type="text" name="vy2"></td>
+                        <td><input type="text" id="vx2"></td>
+                        <td><input type="text" id="vy2"></td>
                     </tr>
                 </table>
             </div>
 
             <div class="formItem">
                 <label for="diameterValue">Inside Diameter</label>
-                <input type="text" name="diameterValue">
+                <input type="text" id="diameterValue">
             </div>
 
             <div class="formItem">
                 <label for="velocityValue">Velocity</label>
-                <input type="text" name="velocityValue">
+                <input type="text" id="velocityValue">
             </div>
 
             <div class="button">
@@ -91,11 +91,7 @@
                     <p id="turbulent"></p>
                 </div>
             </div>
-
-
         </form>
-
-        
     </div>
 </body>
 </html>

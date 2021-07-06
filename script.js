@@ -12,18 +12,18 @@ function calculate() {
     laminar = document.getElementById("laminar");
     transient = document.getElementById("transient");
     turbulent = document.getElementById("turbulent");
-    mwValue = document.forms["form"]["mwValue"].value;
-    tValue = document.forms["form"]["tValue"].value;
-    dx1 = document.forms["form"]["dx1"].value;
-    dx2 = document.forms["form"]["dx2"].value;
-    dy1 = document.forms["form"]["dy1"].value;
-    dy2 = document.forms["form"]["dy2"].value;
-    vx1 = document.forms["form"]["vx1"].value;
-    vx2 = document.forms["form"]["vx2"].value;
-    vy1 = document.forms["form"]["vy1"].value;
-    vy2 = document.forms["form"]["vy2"].value;
-    diameterValue = document.forms["form"]["diameterValue"].value;
-    velocityValue = document.forms["form"]["velocityValue"].value;
+    mwValue = document.getElementById("mwValue").value;
+    tValue = document.getElementById("tValue").value;
+    dx1 = document.getElementById("dx1").value;
+    dx2 = document.getElementById("dx2").value;
+    dy1 = document.getElementById("dy1").value;
+    dy2 = document.getElementById("dy2").value;
+    vx1 = document.getElementById("vx1").value;
+    vx2 = document.getElementById("vx2").value;
+    vy1 = document.getElementById("vy1").value;
+    vy2 = document.getElementById("vy2").value;
+    diameterValue = document.getElementById("diameterValue").value;
+    velocityValue = document.getElementById("velocityValue").value;
 
     // computations
     let getDensity = () => (+dy1 + (+tValue - +dx1) * ((+dy2 - +dy1) / (+dx2 - +dx1))) * +mwValue;
