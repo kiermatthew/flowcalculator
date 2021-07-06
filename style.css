@@ -13,7 +13,7 @@ body{
 .heading p{
     font-style: italic;
 }
-.formContainer{
+.container{
     margin: 0px auto;
     width: 33%;
     padding: 2%;
@@ -56,7 +56,7 @@ input{
     font-weight: bold;
 }
 @media (max-width:680px) {
-    .formContainer{ 
+    .container{ 
         width: 70%;
     }
     .formClass{
