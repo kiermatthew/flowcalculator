@@ -1,6 +1,8 @@
 var mwValue, tValue, dx1, dx2, dy1, dy2, vx1, vx2, vy1, vy2, diameterValue, velocityValue;
 var validationText, densityResult, viscosityResult, nreResult, diameterResult;
 
+const val = document.getElementById("validation").innerHTML;
+
 function calculate() {
     mwValue = document.forms["form"]["mwValue"].value;
     tValue = document.forms["form"]["tValue"].value;
@@ -17,7 +19,7 @@ function calculate() {
 
     if (isNaN(tValue) || isNaN(mwValue) || isNaN(dx1) || isNaN(dx2) || isNaN(dy1) || isNaN(dy2) ||
         isNaN(vx1) || isNaN(vx2) || isNaN(vy1) || isNaN(vy2) || isNaN(diameterValue) || isNaN(velocityValue)) {
-        document.getElementById("validation").innerHTML = "Input must be a number! Try again.";
+        val = "Input must be a number! Try again.";
         document.getElementById("density").innerHTML = "";
         document.getElementById("viscosity").innerHTML = "";
         document.getElementById("diameter").innerHTML = "";
