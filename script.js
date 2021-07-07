@@ -1,6 +1,6 @@
 let mwValue, tValue, dx1, dx2, dy1, dy2, vx1, vx2, vy1, vy2, diameterValue, velocityValue;
 let validationText, densityResult, viscosityResult, nreResult, diameterResult;
-let validate,density,viscosity,diameter,nre,laminar,transient,turbulent;
+let validate,density,viscosity,diameter,nre,laminar,transient,turbulent,result;
 
 function calculate() {
     //connecting js to html 
@@ -9,6 +9,7 @@ function calculate() {
     viscosity = document.getElementById("viscosity");
     diameter = document.getElementById("diameter");
     nre = document.getElementById("nre");
+    result = document.getElementById("result");
     laminar = document.getElementById("laminar");
     transient = document.getElementById("transient");
     turbulent = document.getElementById("turbulent");
@@ -48,6 +49,7 @@ function calculate() {
     }
     else {
         validate.innerHTML = "";
+        result.innerHTML = "Result";
         density.innerHTML = "ρ = " + getDensity();
         viscosity.innerHTML = "μ = " + getViscosity();
         diameter.innerHTML = "D = " + getDiameter();

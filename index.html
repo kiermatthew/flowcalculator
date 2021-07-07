@@ -1,97 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Determination of Water Flow in a Pipe</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <script src="script.js"></script>
-</head>
-<body>
-        
+  </head>
+  <body>
     <div class="container">
-        <div class="header">
-            <h1>Determination of Water Flow in a Pipe</h1>
-             <p>Note: Values are obtained in Perry's Chemical Engineering Handbook 9th Edition</p>
-        </div>
+      <div class="title">
+        <h1>Determination of Water Flow in a Pipe</h1>
+        <p>
+          Note: Values are obtained in Perry's Chemical Engineering Handbook 9th
+          Edition
+        </p>
+      </div>
 
-        <form class="form form__container"  action="javascript:calculate();">
-            <div class="form__item">
-                <label for="mwValue">MW of Substance</label>
-                <input type="text " id = "mwValue">
-            </div>
-            <div class="form__item">
-                <label for="tValue">Enter value of T</label>
-                <input type="text " id = "tValue">
-            </div>
-            <div class = "form__item">
-                <label>Density</label>
-                <table>
-                    <tr>
-                        <th><label>X</label></th>
-                        <th><label>Y</label></th>
-                    </tr>
-                    <tr>
-                        <td><input type="text" id="dx1"></td>
-                        <td><input type="text" id="dy1"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="text" id="dx2"></td>
-                        <td><input type="text" id="dy2"></td>
-                    </tr>
-                </table>
-            </div>
+      <div class="form__wrapper">
+        <form class="form" action="javascript:calculate();">
+          <div class="form__item">
+            <label for="mwValue">MW of Substance</label>
+            <input type="text " id="mwValue" placeholder="MW" />
+          </div>
+          <div class="form__item">
+            <label for="tValue">Enter value of T</label>
+            <input type="text " id="tValue" placeholder="T" />
+          </div>
+          <div>
+            <label>Density</label>
+            <table class="form__table">
+              <tr>
+                <th><label>X</label></th>
+                <th><label>Y</label></th>
+              </tr>
+              <tr>
+                <td><input type="text" id="dx1" placeholder="" /></td>
+                <td><input type="text" id="dy1" /></td>
+              </tr>
+              <tr>
+                <td><input type="text" id="dx2" /></td>
+                <td><input type="text" id="dy2" /></td>
+              </tr>
+            </table>
+          </div>
 
-            <div class = "form__item">
-                <label>Viscosity</label>
-                <table>
-                    <tr>
-                        <th><label>X</label></th>
-                        <th><label>Y</label></th>
-                    </tr>
-                    <tr>
-                        <td><input type="text" id="vx1"></td>
-                        <td><input type="text" id="vy1"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="text" id="vx2"></td>
-                        <td><input type="text" id="vy2"></td>
-                    </tr>
-                </table>
-            </div>
+          <div class="form__item">
+            <label>Viscosity</label>
+            <table>
+              <tr>
+                <th><label>X</label></th>
+                <th><label>Y</label></th>
+              </tr>
+              <tr>
+                <td><input type="text" id="vx1" /></td>
+                <td><input type="text" id="vy1" /></td>
+              </tr>
+              <tr>
+                <td><input type="text" id="vx2" /></td>
+                <td><input type="text" id="vy2" /></td>
+              </tr>
+            </table>
+          </div>
 
-            <div class="form__item">
-                <label for="diameterValue">Inside Diameter</label>
-                <input type="text" id="diameterValue">
-            </div>
+          <div class="form__item">
+            <label for="diameterValue">Inside Diameter</label>
+            <input type="text" id="diameterValue" placeholder="Diameter"/>
+          </div>
 
-            <div class="form__item">
-                <label for="velocityValue">Velocity</label>
-                <input type="text" id="velocityValue">
-            </div>
+          <div class="form__item">
+            <label for="velocityValue">Velocity</label>
+            <input type="text" id="velocityValue" placeholder="Velocity"/>
+          </div>
 
-            <div class="form__button">
-                <input type="submit" value="Calculate">
-            </div>
+          <div class="form__button">
+            <input type="submit" value="Calculate" />
+          </div>
 
-            <div class="form__output">
-                <div class="validation">
-                    <p id="validation"></p>
-                </div>
-                <div class="answer">
-                    <p id="density"></p>
-                    <p id ="viscosity"></p>
-                    <p id ="diameter"></p>
-                    <p id ="nre"></p>
-                </div>
-                <div class="follow">
-                    <p id="laminar"></p>
-                    <p id="transient"></p>
-                    <p id="turbulent"></p>
-                </div>
+          <div class="form__output">
+              <p id="result"></p>
+            <div class="validation">
+              <p id="validation"></p>
             </div>
+            <div class="answer">
+              <p id="density"></p>
+              <p id="viscosity"></p>
+              <p id="diameter"></p>
+              <p id="nre"></p>
+            </div>
+            <div class="guide">
+              <p id="laminar"></p>
+              <p id="transient"></p>
+              <p id="turbulent"></p>
+            </div>
+          </div>
         </form>
+      </div>
     </div>
-</body>
+  </body>
 </html>
