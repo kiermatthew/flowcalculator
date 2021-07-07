@@ -85,7 +85,7 @@ input[type="submit"]{
         font-size: 0.9rem;
     }
     .container{
-        width: 80%;
+        width: 90%;
     }
     .form__wrapper{
         width: 70%;
@@ -95,8 +95,4 @@ input[type="submit"]{
         font-size: 0.7rem;
     }
 }
-@media (max-width:550px) {
-    .container{
-        width: 80%;
-    }
-}
+
